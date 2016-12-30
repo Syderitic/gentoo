@@ -34,6 +34,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/envy24control-config-dir.patch
+	"${FILESDIR}"/${P}-output_tram_line-static.patch
 )
 
 pkg_setup() {
