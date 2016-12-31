@@ -41,7 +41,7 @@ REQUIRED_USE="?? ( webengine webkit )"
 QT_PV="5.6.0:5"
 
 RDEPEND="
-	=dev-libs/botan-1.10*[-bindist,threads]
+	=dev-libs/botan-1.10*[threads]
 	>=dev-qt/designer-${QT_PV}
 	>=dev-qt/qtconcurrent-${QT_PV}
 	>=dev-qt/qtcore-${QT_PV}
