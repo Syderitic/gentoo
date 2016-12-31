@@ -24,7 +24,7 @@ RDEPEND="bzip2? ( >=app-arch/bzip2-1.0.5 )
 	zlib? ( >=sys-libs/zlib-1.2.3 )
 	python? ( ${PYTHON_DEPS} >=dev-libs/boost-1.48[python,${PYTHON_USEDEP}] )
 	gmp? ( >=dev-libs/gmp-4.2.2:* )
-	ssl? ( >=dev-libs/openssl-0.9.8g:*[bindist=] )"
+	ssl? ( >=dev-libs/openssl-0.9.8z_p8:* )"
 DEPEND="${RDEPEND}
 	doc? ( dev-python/sphinx )"
 
