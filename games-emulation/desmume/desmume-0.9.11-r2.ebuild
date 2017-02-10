@@ -11,8 +11,9 @@ SRC_URI="mirror://sourceforge/desmume/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
+
+KEYWORDS="~amd64 ~ppc ~x86"
+IUSE="wifi glx openal hud glade"
 
 RDEPEND="
 	dev-libs/zziplib
@@ -21,7 +22,10 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/opengl
 	x11-libs/agg
-	>=x11-libs/gtk+-2.8.0:2"
+	>=x11-libs/gtk+-2.8.0:2
+	x11-libs/gtkglext"
+	openal? ( media-libs/openal )
+	glade? ( dev-util/glade )"
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	virtual/pkgconfig"
@@ -35,3 +39,12 @@ PATCHES=(
 	"${FILESDIR}/${P}-gcc6.patch"
 	"${FILESDIR}/${P}-gcc7.patch"
 )
+
+src_configure() {
+	econf \
+		$(use_enable wifi ) \
+		$(use_enable glx ) \
+		$(use_enable openal ) \
+		$(use_enable glade ) \
+		$(use_enable hud )
+}
