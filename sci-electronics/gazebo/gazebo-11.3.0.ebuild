@@ -13,8 +13,13 @@ LICENSE="Apache-2.0"
 # Subslot = major version = soname of libs
 SLOT="0/11"
 KEYWORDS="~amd64"
-IUSE="cpu_flags_x86_sse2 test"
+
+IUSE="libav test dart"
+
 RESTRICT="!test? ( test )"
+
+IUSE_CPU_FLAGS=" sse2 sse3 sse4_1 sse4_2 ssse3"
+IUSE+=" ${IUSE_CPU_FLAGS// / cpu_flags_x86_}"
 
 RDEPEND="
 	>=dev-libs/protobuf-2:=
@@ -50,6 +55,7 @@ RDEPEND="
 	sci-libs/ignition-common:3=
 	sci-libs/ignition-fuel-tools:4=
 	x11-libs/qwt:6=[qt5(+)]
+	dart? ( =sci-physics/dart-5.1.5 )
 "
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
@@ -72,12 +78,16 @@ src_configure() {
 	sed -e "s#lib/OGRE#$(get_libdir)/OGRE#" -i cmake/gazebo-config.cmake.in || die
 
 	local mycmakeargs=(
-		"-DUSE_UPSTREAM_CFLAGS=OFF"
-		"-DSSE2_FOUND=$(usex cpu_flags_x86_sse2 TRUE FALSE)"
-		"-DUSE_HOST_CFLAGS=FALSE"
-		"-DBUILD_TESTING=$(usex test TRUE FALSE)"
-		"-DENABLE_SCREEN_TESTS=FALSE"
-		"-DUSE_EXTERNAL_TINYXML2=TRUE"
+		-DUSE_UPSTREAM_CFLAGS=OFF
+		-DSSE2_FOUND=$(usex cpu_flags_x86_sse2)
+		-DSSE3_FOUND=$(usex cpu_flags_x86_sse3)
+		-DSSE4_1_FOUND=$(usex cpu_flags_x86_sse4_1)
+		-DSSE4_2_FOUND=$(usex cpu_flags_x86_sse4_2)
+		-DSSSE3_FOUND=$(usex cpu_flags_x86_ssse3)
+		-DUSE_HOST_CFLAGS=FALSE
+		-DBUILD_TESTING=$(usex test TRUE FALSE)
+		-DENABLE_SCREEN_TESTS=FALSE
+		-DUSE_EXTERNAL_TINYXML2=TRUE
 	)
 	cmake_src_configure
 }
