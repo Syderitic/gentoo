@@ -113,8 +113,8 @@ src_configure() {
 	if use superlu; then
 		mycmakeargs+=(
 			-DSuperLU_FOUND=ON
-			-DSuperLU_LIBRARY="$($(tc-getPKG_CONFIG) --libs superlu)"
-			-DSuperLU_INCLUDE_DIR="$($(tc-getPKG_CONFIG) --cflags-only-I superlu | awk '{print $1}' | sed 's/-I//')"
+#			-DSuperLU_INCLUDE_DIR="$($(tc-getPKG_CONFIG) --cflags-only-I superlu | sed 's/-I//')"
+#			-DSuperLU_LIBRARIES="$($(tc-getPKG_CONFIG) --libs superlu)"
 		)
 	else
 		mycmakeargs+=(
