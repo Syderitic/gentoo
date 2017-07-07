@@ -138,8 +138,7 @@ cuda_sanitize() {
 	NVCCFLAGS+=" $(cuda_gccdir -f)"
 
 	# Tell nvcc which flags should be used for underlying C compiler
-	NVCCFLAGS+=" --compiler-options \"${CXXFLAGS}\" --linker-options \"${rawldflags// /,}\""
-
+	NVCCFLAGS+=" -D_FORCE_INLINES --compiler-options \"${CXXFLAGS}\" --linker-options ${rawldflags// /,}"
 	debug-print "Using ${NVCCFLAGS} for cuda"
 	export NVCCFLAGS
 }
