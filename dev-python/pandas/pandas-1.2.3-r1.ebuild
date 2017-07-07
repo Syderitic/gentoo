@@ -83,6 +83,7 @@ DEPEND="${COMMON_DEPEND}
 		dev-python/xlwt[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
 		x11-misc/xclip
+		dev-python/xarray[${PYTHON_USEDEP}]
 	)
 	test? (
 		${VIRTUALX_DEPEND}
