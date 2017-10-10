@@ -9,6 +9,8 @@ WEBAPP_MANUAL_SLOT=yes
 
 inherit flag-o-matic java-pkg-opt-2 python-single-r1 qmake-utils versionator toolchain-funcs cmake-utils virtualx webapp
 
+CMAKE_MAKEFILE_GENERATOR="ninja"
+
 # Short package version
 SPV="$(get_version_component_range 1-2)"
 
@@ -155,6 +157,7 @@ src_configure() {
 		-DVTK_DATA_ROOT="${EPREFIX}/usr/share/${PN}/data"
 		-DVTK_CUSTOM_LIBRARY_SUFFIX=""
 		-DBUILD_SHARED_LIBS=ON
+		-DCMAKE_SKIP_RPATH=ON
 		-DVTK_USE_SYSTEM_AUTOBAHN=ON
 		-DVTK_USE_SYSTEM_EXPAT=ON
 		-DVTK_USE_SYSTEM_FREETYPE=ON
