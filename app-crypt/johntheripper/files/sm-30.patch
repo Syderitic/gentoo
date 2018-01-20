@@ -1,0 +1,12 @@
+diff -Naur a/src/Makefile b/src/Makefile
+--- a/src/Makefile	2018-01-20 16:22:15.215201491 +0000
++++ b/src/Makefile	2018-01-20 16:22:37.002200642 +0000
+@@ -36,7 +36,7 @@
+ #HAVE_NSS = -DHAVE_NSS `pkg-config --cflags nss`
+ 
+ # Change sm_10 to sm_20 if you have Fermi support (400 series or later)
+-NVCC_FLAGS = -c -Xptxas -v -arch sm_10
++NVCC_FLAGS = -c -Xptxas -v -arch sm_30 $(NVCCFLAGS)
+ CUDAPATH = /opt/cuda/lib
+ CUDA64PATH = /opt/cuda/lib64
+ 
