@@ -50,6 +50,8 @@ src_unpack() {
 }
 
 pkg_setup() {
+	append-cxxflags -fPIC -fPIE
+	append-cflags -fPIC -fPIE
 	if use cuda || use opencl; then
 		cuda_pkg_setup
 	fi
