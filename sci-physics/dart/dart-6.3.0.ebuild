@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit cmake-utils
+inherit cmake-utils multilib
 
 DESCRIPTION="Dynamic Animation and Robotics Toolkit"
 HOMEPAGE="http://dartsim.github.io/"
@@ -85,6 +85,8 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
+
+	mv "${ED}/usr/lib" "${ED}/usr/$(get_libdir)" || die "mv failed"
 
 	if use examples; then
 		dodoc -r examples
