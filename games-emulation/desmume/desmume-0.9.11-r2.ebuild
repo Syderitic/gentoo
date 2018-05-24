@@ -23,7 +23,7 @@ RDEPEND="
 	virtual/opengl
 	x11-libs/agg
 	>=x11-libs/gtk+-2.8.0:2
-	x11-libs/gtkglext"
+	x11-libs/gtkglext
 	openal? ( media-libs/openal )
 	glade? ( dev-util/glade )"
 DEPEND="${RDEPEND}
