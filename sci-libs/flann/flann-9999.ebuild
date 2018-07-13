@@ -77,7 +77,7 @@ src_configure() {
 		-DUSE_OPENMP=$(usex openmp)
 	)
 	use cuda && mycmakeargs+=(
-		-DCUDA_NVCC_FLAGS="${NVCCFLAGS} --linker-options \"-arsch\""
+		-DCUDA_NVCC_FLAGS="${NVCCFLAGS}"
 	)
 	use doc && mycmakeargs+=( -DDOCDIR=share/doc/${PF} )
 
