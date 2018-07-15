@@ -207,6 +207,13 @@ src_configure() {
 
 	tc-export AR RANLIB
 
+	# bug 632660
+        if use ogdi; then
+                tc-export PKG_CONFIG
+                append-cflags $(${PKG_CONFIG} --cflags libtirpc)
+                append-cxxflags $(${PKG_CONFIG} --cflags libtirpc)
+        fi
+
 	if use java; then
 		myconf+=(
 			--with-java=$(java-config --jdk-home 2>/dev/null)
