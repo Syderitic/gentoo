@@ -30,8 +30,7 @@ RDEPEND="
 	>=dev-libs/tinyxml2-6:=
 	dev-libs/libtar
 	dev-cpp/tbb
-	>=dev-games/ogre-1.7.4:=[freeimage]
-	<dev-games/ogre-1.10
+	>=dev-games/ogre-1.7.4[freeimage]
 	>=media-libs/freeimage-3.15.4[png]
 	sci-libs/libccd
 	>=media-video/ffmpeg-2.6:0=
@@ -55,7 +54,7 @@ RDEPEND="
 	sci-libs/ignition-common:3=
 	sci-libs/ignition-fuel-tools:4=
 	x11-libs/qwt:6=[qt5(+)]
-	dart? ( =sci-physics/dart-5* )
+	dart? ( =sci-physics/dart-6* )
 "
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
