@@ -139,6 +139,7 @@ pkg_setup() {
 src_prepare() {
 	if ! use minimal; then
 		eapply "${WORKDIR}/${MY_P}-${JUMBO}.diff"
+		eapply -p1 "${FILESDIR}/sm-30.patch"
 
 		if use mpi ; then
 			sed -e "s/^#CC = mpicc/CC = mpicc/" \
