@@ -16,15 +16,18 @@ KEYWORDS="amd64 ~arm ~arm64 x86 ~amd64-linux ~x86-linux"
 IUSE="arb benchmarks boost debug doc ecm flint llvm mpc mpfr openmp test tcmalloc threads"
 RESTRICT="!test? ( test )"
 
+REQUIRED_USE="
+	flint? ( !llvm )
+"
+
 RDEPEND="
-	dev-libs/gmp:=
-	sys-libs/binutils-libs:=
 	arb? ( sci-mathematics/arb:= )
 	boost? ( dev-libs/boost:= )
 	ecm? ( sci-mathematics/gmp-ecm )
 	flint? ( sci-mathematics/flint:= )
 	mpc? ( dev-libs/mpc:= )
 	tcmalloc? ( dev-util/google-perftools )
+	sys-libs/binutils-libs:=
 "
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen[dot] )
