@@ -17,8 +17,8 @@ SLOT="0"
 IUSE="audit bluetooth connection-sharing dhclient dhcpcd elogind gnutls +introspection iwd kernel_linux +nss +modemmanager ncurses ofono ovs policykit +ppp resolvconf selinux systemd teamd test vala +wext +wifi"
 RESTRICT="!test? ( test )"
 
+#	bluetooth? ( modemmanager )
 REQUIRED_USE="
-	bluetooth? ( modemmanager )
 	iwd? ( wifi )
 	vala? ( introspection )
 	wext? ( wifi )
