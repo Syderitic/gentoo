@@ -72,6 +72,7 @@ src_configure() {
         # ===================================================
         # CUDA build components
         # ===================================================
+		"-DCUDA_ARCH_BIN=3.0"
 		"-DWITH_CUDA=$(usex cuda TRUE FALSE)"
 		"-DBUILD_CUDA=$(usex cuda TRUE FALSE)"
 		"-DBUILD_cuda_io=$(usex cuda TRUE FALSE)"
