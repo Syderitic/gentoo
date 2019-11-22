@@ -22,5 +22,6 @@
     <flag name="gui">Pulls optional dependencies to compile dart-gui.</flag>
     <flag name="tutorials">Installs tutorials.</flag>
     <flag name="utils">Pulls optional dependencies to compile dart-utils.</flag>
+    <flag name="ode">Pulls dev-games/ode for simulating articulated rigid body dynamics.</flag>
   </use>
 </pkgmetadata>
