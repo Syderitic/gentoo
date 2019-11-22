@@ -54,7 +54,7 @@ RDEPEND="
 	sci-libs/ignition-common:3=
 	sci-libs/ignition-fuel-tools:4=
 	x11-libs/qwt:6=[qt5(+)]
-	dart? ( =sci-physics/dart-6* )
+	dart? ( sci-physics/dart:0/6.6.0 )
 "
 DEPEND="${RDEPEND}
 	dev-qt/qttest:5
