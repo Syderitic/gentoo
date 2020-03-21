@@ -26,7 +26,6 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	sys-apps/dbus
-	!sys-auth/consolekit
 "
 
 # For consolekit incompatibility see https://forums.gentoo.org/viewtopic-p-8332956.html#8332956
