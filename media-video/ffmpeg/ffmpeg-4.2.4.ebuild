@@ -465,6 +465,7 @@ multilib_src_configure() {
 		--ar="$(tc-getAR)" \
 		--optflags="${CFLAGS}" \
 		$(use_enable static-libs static) \
+		$(use_enable cuda nvenc) \
 		"${myconf[@]}"
 	echo "${@}"
 	"${@}" || die
