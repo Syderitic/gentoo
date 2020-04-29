@@ -41,7 +41,7 @@ RDEPEND="
 	)
 	crypt? (
 		>=dev-python/pyopenssl-16.0.0[${PYTHON_USEDEP}]
-		dev-python/service_identity[${PYTHON_USEDEP}]
+		>=dev-python/service_identity-18.1.0[${PYTHON_USEDEP}]
 		>=dev-python/idna-0.6[${PYTHON_USEDEP}]
 	)
 	serial? ( >=dev-python/pyserial-3.0[${PYTHON_USEDEP}] )
@@ -71,7 +71,7 @@ DEPEND="
 		>=dev-python/cryptography-0.9.1[${PYTHON_USEDEP}]
 		>=dev-python/appdirs-1.4.0[${PYTHON_USEDEP}]
 		>=dev-python/pyopenssl-0.13[${PYTHON_USEDEP}]
-		dev-python/service_identity[${PYTHON_USEDEP}]
+		>=dev-python/service_identity-18.1.0[${PYTHON_USEDEP}]
 		dev-python/idna[${PYTHON_USEDEP}]
 		dev-python/pyserial[${PYTHON_USEDEP}]
 		>=dev-python/constantly-15.1.0[${PYTHON_USEDEP}]
