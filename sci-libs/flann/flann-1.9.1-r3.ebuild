@@ -12,7 +12,7 @@ SRC_URI="https://github.com/mariusmuja/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 ~arm arm64 ~ppc x86 ~amd64-linux ~x86-linux"
-IUSE="cuda doc examples mpi octave openmp"
+IUSE="cuda doc examples mpi octave matlab openmp"
 
 BDEPEND="
 	app-arch/unzip
@@ -32,9 +32,9 @@ RDEPEND="${DEPEND}"
 # TODO:
 # readd dependencies for test suite,
 # requires multiple ruby dependencies
+#	"${FILESDIR}"/${P}-cmake-3.11{,-1}.patch # bug 678030
 
 PATCHES=(
-	"${FILESDIR}"/${P}-cmake-3.11{,-1}.patch # bug 678030
 	"${FILESDIR}"/${P}-cuda-9.patch
 	"${FILESDIR}"/${P}-system-lz4.patch # bug 681898
 )
@@ -52,13 +52,13 @@ src_prepare() {
 	use mpi && export CXX=mpicxx
 	# produce pure octave files
 	# octave gentoo installation for .m files respected
-	sed -i \
+	use octave && sed -i \
 		-e 's/--mex//' \
 		-e 's/\.mex/\.oct/' \
 		-e '/FILES/s/${MEX_FILE}//' \
 		-e 's:share/flann/octave:share/octave/site/m:' \
 		-e "/CUSTOM_TARGET/a\INSTALL(FILES \${MEX_FILE} DESTINATION libexec/octave/site/oct/${CHOST})" \
-		src/matlab/CMakeLists.txt || die
+		src/matlab/CMakeLists.txt
 	use cuda && cuda_src_prepare
 
 	cmake_src_prepare
@@ -76,7 +76,7 @@ src_configure() {
 		-DBUILD_EXAMPLES=$(usex examples)
 		-DBUILD_DOC=$(usex doc)
 		-DBUILD_TESTS=OFF
-		-DBUILD_MATLAB_BINDINGS=$(usex octave)
+		-DBUILD_MATLAB_BINDINGS=$(usex octave||usex matlab)
 		-DUSE_MPI=$(usex mpi)
 		-DUSE_OPENMP=$(usex openmp)
 	)
