@@ -27,6 +27,7 @@ RDEPEND="
 	dev-python/scipy[${PYTHON_USEDEP}]
 	virtual/blas:=
 	virtual/cblas:=
+	dev-python/joblib[${PYTHON_USEDEP}]
 "
 DEPEND="
 	virtual/blas:=
